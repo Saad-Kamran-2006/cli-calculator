@@ -1,12 +1,9 @@
 {
-  "name": "saad-calculator",
-  "version": "1.0.0",
+  "name": "saad-cal",
+  "version": "1.2.0",
   "description": "",
-  "main": "index.js",
+  "main": "calculator.js",
   "type": "module",
-  "bin": {
-    "saad-calculator": "bin/calculator.js"
-  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -16,12 +13,18 @@
   "dependencies": {
     "chalk": "^5.3.0",
     "chalk-animation": "^2.0.3",
-    "inquirer": "^9.2.12"
+    "figlet": "^1.7.0",
+    "inquirer": "^9.2.12",
+    "saad-calc": "^1.0.0"
   },
   "devDependencies": {
+    "@figlet-ts/fonts": "^0.5.0",
+    "@figlet-ts/lib": "^0.5.0",
     "@types/chalk": "^2.2.0",
     "@types/chalk-animation": "^1.6.3",
+    "@types/figlet": "^1.5.8",
     "@types/inquirer": "^9.0.7",
     "@types/node": "^20.10.5"
   }
 }
+

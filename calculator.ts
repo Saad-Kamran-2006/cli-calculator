@@ -4,6 +4,7 @@ import { log } from "console";
 import inquirer from "inquirer";
 import chalk from "chalk";
 import chalkAnimation from "chalk-animation";
+import figlet from "figlet";
 import { promises } from "dns";
 
 //stop function:
@@ -37,8 +38,16 @@ async function animation() {
     |_____________________|`);
     await stop();//stop function call
     cal_Logo.stop();//cal_Logo function call 
+
+    log(chalk.red("________________________________________________________________________________________________________________________"))
+
+    let Figlet = chalkAnimation.rainbow(figlet.textSync("Develop by Saad", {horizontalLayout: "full"}));
+    await stop();
+    Figlet.stop();
 };
 await animation();//animation function call
+
+log(chalk.red("________________________________________________________________________________________________________________________"))
 
 //calculator function:
 
@@ -90,10 +99,16 @@ async function Continue() {
         var again = await inquirer.prompt([
             {
                 name: "restart",
-                type: "input",
-                message: chalk.yellow("Do you want to continue? Press y or n:")
+                type: "list",
+                message: chalk.yellow("Do you want to continue? Press Yes or No:"),
+                choices: ["Yes", "No"]
             }
-        ])
-    }while(again.restart == "y" || again.restart == "Y" || again.restart == "yes" || again.restart == "YES")
+        ]);
+    }while(again.restart === "Yes");
+    if(again.restart === "No"){
+        let greet = chalkAnimation.rainbow("~Thanks for using calculator~");
+        await stop();
+        greet.stop();
+    }
 };
 Continue()//Continue function call
